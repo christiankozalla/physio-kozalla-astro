@@ -1,0 +1,47 @@
+---
+type Props = {
+    img: {
+        src: string;
+        alt: string;
+    };
+    copy: string;
+};
+const { img, copy } = Astro.props;
+---
+
+<div class="container">
+    <img class="item" src={img.src} alt={img.alt} />
+    <p class="item copy" set:html={copy}/>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: row;
+            border-radius: 24px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        img.item {
+            height: 100%;
+            width: 50%;
+            max-height: 260px;
+            flex-grow: 0;
+            flex-shrink: 0;
+            object-fit: cover;
+            object-position: bottom;
+        }
+
+        .item:first-child {
+            border-radius: 24px 0 0 24px;
+        }
+
+        .item:last-child {
+            border-radius: 0 24px 24px 0;
+        }
+
+        .copy {
+            font-size: large;
+            padding: 2rem;
+            width: 100%;
+        }
+    </style>
+</div>

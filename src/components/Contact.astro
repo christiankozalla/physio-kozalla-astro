@@ -1,0 +1,136 @@
+---
+import CallToAction from "./CallToAction.astro";
+import Icon from "./Icon.astro";
+---
+
+<section class="box contact">
+	<div id="come-home" class="stack gap-2 lg:gap-4 grow-0">
+		<Icon
+			icon="house-line"
+			color="var(--accent-regular)"
+			size="2.5rem"
+			gradient
+		/>
+		<h2>Wir kommen zu Ihnen nach Hause</h2>
+		<p class="stack-content justify-start">
+			<span
+				>Ihre Erkrankung erschwert Ihnen die Anreise in unsere Praxis?</span
+			><span>
+				Kein Problem! Wir führen die Behandlung entspannt bei Ihnen zu
+				Hause durch.</span
+			>
+		</p>
+	</div>
+	<div id="your-treatment" class="stack gap-2 lg:gap-4 grow-0">
+		<Icon
+			icon="person-arms-spread"
+			color="var(--accent-regular)"
+			size="2.5rem"
+			gradient
+		/>
+		<h2>Ihre Behandlung</h2>
+		<p class="stack-content">
+			<span
+				>Was tut Ihnen gut?<br />Wir haben genau die richtige
+				Behandlungstechnik für Sie! In mehr als 1500
+				Fortbildungseinheiten geschult kann ich Ihnen durch
+				evidenzbasierte Behandlung zur Heilung verhelfen.</span
+			>
+
+			<CallToAction small href="tel:048329273">
+				<Icon icon="phone" size="1.2em" />
+				Vereinbaren Sie<br />einen Termin
+			</CallToAction>
+		</p>
+	</div>
+	<div id="how-to-find-us" class="stack gap-2 lg:gap-4 grow-0">
+		<Icon
+			icon="heart"
+			color="var(--accent-regular)"
+			size="2.5rem"
+			gradient
+		/>
+		<h2>So finden Sie uns</h2>
+		<p>
+			Physiotherapie Gerlinde Kozalla<br />Seehundsbank 3<br />25704
+			Meldorf
+		</p>
+	</div>
+</section>
+
+<style>
+	.box {
+		border: 1px solid var(--gray-800);
+		border-radius: 0.75rem;
+		padding: 1rem;
+		background-color: var(--gray-999_40);
+		box-shadow: var(--shadow-sm);
+	}
+
+	.contact {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.contact h2 {
+		font-size: var(--text-lg);
+	}
+
+	.contact p {
+		color: var(--gray-400);
+	}
+
+	.grow-0 {
+		flex-grow: 0;
+	}
+
+	.stack-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		flex: 1 1 100%;
+		gap: 12px;
+	}
+
+	.justify-start {
+		justify-content: start;
+	}
+
+	#come-home {
+		order: 1;
+	}
+	#your-treatment {
+		order: 3;
+	}
+	#how-to-find-us {
+		order: 2;
+	}
+
+	@media (min-width: 50em) {
+		.box {
+			border-radius: 1.5rem;
+			padding: 2.5rem;
+		}
+
+		.contact {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 5rem;
+		}
+
+		.contact h2 {
+			font-size: var(--text-2xl);
+		}
+
+		#come-home {
+			order: 1;
+		}
+		#your-treatment {
+			order: 2;
+		}
+		#how-to-find-us {
+			order: 3;
+		}
+	}
+</style>

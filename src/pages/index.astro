@@ -1,108 +1,234 @@
 ---
-import { getCollection } from 'astro:content';
-
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 // Component Imports
-import CallToAction from '../components/CallToAction.astro';
-import Grid from '../components/Grid.astro';
-import Hero from '../components/Hero.astro';
-import Icon from '../components/Icon.astro';
-import Pill from '../components/Pill.astro';
-import PortfolioPreview from '../components/PortfolioPreview.astro';
+import CallToAction from "../components/CallToAction.astro";
+import Grid from "../components/Grid.astro";
+import Hero from "../components/Hero.astro";
+import Icon from "../components/Icon.astro";
+import Pill from "../components/Pill.astro";
+import Contact from "../components/Contact.astro";
+import ImageAndCopy from "../components/ImageAndCopy.astro";
 
-// Page section components
-import ContactCTA from '../components/ContactCTA.astro';
-import Skills from '../components/Skills.astro';
+const behandlungsmethoden: {
+	img: { src: string; alt: string };
+	copy: string;
+}[] = [
+	{
+		img: {
+			src: "/kgfotos/Behandlungsmethoden/1-Halsbehandlung-Atlastherapie-erster-Halswirbel.JPG",
+			alt: "Halsbehandlung Atlastherapie erster Halswirbel",
+		},
+		copy: "Halsbehandlung Atlastherapie erster Halswirbel",
+	},
+	{
+		img: {
+			src: "/kgfotos/Behandlungsmethoden/2-Klassische-Massage-Therapie-KMT.JPG",
+			alt: "Klassische Massage Therapie KMT",
+		},
+		copy: "Klassische Massage Therapie KMT",
+	},
+	{
+		img: {
+			src: "/kgfotos/Behandlungsmethoden/3-Schonendes-Loeseb-Von-Blockierungen-in-der-Wirbelsäule-nach-Vojta.JPG",
+			alt: "Schonendes Lösen von Blockierungen in der Wirbelsäule nach Vojta",
+		},
+		copy: "Schonendes Lösen von Blockierungen in der Wirbelsäule nach Vojta",
+	},
+	{
+		img: {
+			src: "/kgfotos/Behandlungsmethoden/4-Verbesserung-des-Gangbildes-spinale-Läsionen-vor-und-nach-Bandscheiben-OP-nach-Vojta.JPG",
+			alt: "Verbesserung des Gangbildes spinale Läsionen vor und nach Bandscheiben OP nach Vojta",
+		},
+		copy: "Verbesserung des Gangbildes spinale Läsionen vor und nach Bandscheiben OP nach Vojta",
+	},
+	{
+		img: {
+			src: "/kgfotos/Behandlungsmethoden/5-Vojta-Grifftechnik.JPG",
+			alt: "Vojta Grifftechnik",
+		},
+		copy: "Vojta Grifftechnik",
+	},
+	{
+		img: {
+			src: "/kgfotos/Behandlungsmethoden/6-Schulterbehandlung.JPG",
+			alt: "Schulterbehandlung",
+		},
+		copy: "Schulterbehandlung",
+	},
+	{
+		img: {
+			src: "/kgfotos/Behandlungsmethoden/7-Fußreflexzonen-Massage-nach-W.-Froneberg.JPG",
+			alt: "Fußreflexzonen-Massage nach W. Froneberg",
+		},
+		copy: "Fußreflexzonen-Massage nach W. Froneberg",
+	},
+];
 
-// Content Fetching: List four most recent work projects
-const projects = (await getCollection('work'))
-	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
-	.slice(0, 4);
+const bobathhandling: { img: { src: string; alt: string }; copy: string }[] = [
+	{
+		img: {
+			src: "/kgfotos/Bobath-Handling/1-Bobath-Muschelgriff-um-den-Patienten-im-Bett-rueckenschonend-zu-bewegen.JPG",
+			alt: "Schritt 1",
+		},
+		copy: "Erster Schritt:<br>Der Muschelgriff",
+	},
+	{
+		img: {
+			src: "/kgfotos/Bobath-Handling/2-Bobath-Rueckenschonendes-Handling-nach-Bobath-fuer-Angehoerige-und-Pflegepersonal.JPG",
+			alt: "Schritt: 2",
+		},
+		copy: "Zweiter Schritt:<br>Die Schulter des Patienten fassen.",
+	},
+	{
+		img: {
+			src: "/kgfotos/Bobath-Handling/3-Bobath-rueckenschonendes-Handlung-Aufstehhilfe.JPG",
+			alt: "Schritt 3"
+		},
+		copy: "Dritter Schritt:<br>Über die Schulter den Patienten auf die Seite drehen.",
+	},
+	{
+		img: {
+			src: "/kgfotos/Bobath-Handling/3-Bobath-rueckenschonendes-Handlung-Aufstehhilfe.JPG",
+			alt: "Schritt 4",
+		},
+		copy: "Vierter Schritt:<br>Über die Schulter die Aufsteh-Bewegung einleiten und dabei die Hüfte des Patienten halten.",
+	},
+];
 
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
+const title = "Physiotherapie Praxis Gerlinde Kozalla";
+const description =
+	"Wir sind spezialisiert auf Bobath, Vojta, sensorische Integration und Behandlung nach Schlaganfall.";
 ---
 
-<BaseLayout>
+<BaseLayout
+	title="Physiotherapie Praxis Gerlinde Kozalla"
+	description={"Terminvereinbarung unter 04832 9273 " + description}
+>
 	<div class="stack gap-20 lg:gap-48">
-		<div class="wrapper stack gap-8 lg:gap-20">
+		<div id="intro" class="wrapper stack gap-8 lg:gap-20">
 			<header class="hero">
-				<Hero
-					title="Hello, my name is Jeanine White"
-					tagline="I am a Creative Developer who is currently based in Portland, Oregon."
-					align="start"
-				>
+				<Hero title={title} tagline={description} align="start">
 					<div class="roles">
-						<Pill><Icon icon="code" size="1.33em" /> Developer</Pill>
-						<Pill><Icon icon="microphone-stage" size="1.33em" /> Speaker</Pill>
-						<Pill><Icon icon="pencil-line" size="1.33em" /> Writer</Pill>
+						<Pill
+							><Icon
+								icon="lightning"
+								size="1.33em"
+							/>Schmerztherapie</Pill
+						>
+						<Pill
+							><Icon
+								icon="island"
+								size="1.33em"
+							/>Entspannungstechniken</Pill
+						>
+						<Pill
+							><Icon
+								icon="house-line"
+								size="1.33em"
+							/>Hausbehandlungen</Pill
+						>
 					</div>
 				</Hero>
 
 				<img
-					alt="Jeanine White smiling in a red plaid shirt and tortoise shell glasses"
+					alt="Massage Stock Photo"
 					width="480"
 					height="620"
-					src="/assets/portrait.jpg"
+					src="/main-min.jpg"
 				/>
 			</header>
 
-			<Skills />
+			<!-- <Skills /> -->
 		</div>
 
 		<main class="wrapper stack gap-20 lg:gap-48">
-			<section class="section with-background with-cta">
+			<section id="leistungen" class="section with-background with-cta">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Selected Work</h3>
-					<p>Take a look below at some of my featured work for clients from the past few years.</p>
+					<h3>Unsere Leistungen</h3>
 				</header>
 
-				<div class="gallery">
-					<Grid variant="offset">
+				<div class="section-content">
+					<p class="section-copy">
+						Ein kleiner Auszug aus meinem Leistungsportfolio:
+					</p>
+
+					<Grid>
 						{
-							projects.map((project) => (
-								<li>
-									<PortfolioPreview project={project} />
-								</li>
+							behandlungsmethoden.map((methode) => (
+								<ImageAndCopy
+									img={methode.img}
+									copy={methode.copy}
+								/>
 							))
 						}
 					</Grid>
 				</div>
 
 				<div class="cta">
-					<CallToAction href="/work/">
-						View All
-						<Icon icon="arrow-right" size="1.2em" />
+					<CallToAction
+						style="max-width: calc(100vw - 3rem)"
+						href="tel:004948329273"
+					>
+						Vereinbaren Sie einen Termin <Icon
+							icon="phone"
+							size="1.2em"
+						/>
+					</CallToAction>
+				</div>
+			</section>
+
+			<section id="leistungen" class="section with-background with-cta">
+				<header class="section-header stack gap-2 lg:gap-4">
+					<h3>Bobath Handling</h3>
+				</header>
+
+				<div class="section-content">
+					<p class="section-copy">
+						Die rückenschonende Aufsteh-Hilfe für
+						Angehörige und Pflegepersonal.
+					</p>
+
+					<Grid>
+						{
+							bobathhandling.map((methode) => (
+								<ImageAndCopy
+									img={methode.img}
+									copy={methode.copy}
+								/>
+							))
+						}
+					</Grid>
+				</div>
+
+				<div class="cta">
+					<CallToAction
+						style="max-width: calc(100vw - 3rem)"
+						href="tel:004948329273"
+					>
+						Vereinbaren Sie einen Termin <Icon
+							icon="phone"
+							size="1.2em"
+						/>
 					</CallToAction>
 				</div>
 			</section>
 
 			<section class="section with-background bg-variant">
-				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Mentions</h3>
-					<p>
-						I have been fortunate enough to receive praise for my work in several publications. Take
-						a look below to learn more.
-					</p>
+				<header
+					id="kontakt"
+					class="section-header stack gap-2 lg:gap-4"
+				>
+					<h3>Kontakt</h3>
 				</header>
-
-				<div class="gallery">
-					<Grid variant="small">
-						{
-							['Medium', 'BuzzFeed', 'The Next Web', 'awwwards.', 'TechCrunch'].map((brand) => (
-								<li class="mention-card">
-									<p>{brand}</p>
-								</li>
-							))
-						}
-					</Grid>
+				<div class="section-content">
+					<Contact />
 				</div>
 			</section>
 		</main>
 
-		<ContactCTA />
+		<!-- <ContactCTA /> -->
 	</div>
 </BaseLayout>
 
@@ -161,7 +287,7 @@ const projects = (await getCollection('work'))
 	.with-background::before {
 		--hero-bg: var(--bg-image-subtle-2);
 
-		content: '';
+		content: "";
 		position: absolute;
 		pointer-events: none;
 		left: 50%;
@@ -170,7 +296,7 @@ const projects = (await getCollection('work'))
 		top: 0;
 		transform: translateY(-75%) translateX(-50%);
 		background:
-			url('/assets/backgrounds/noise.png') top center/220px repeat,
+			url("/assets/backgrounds/noise.png") top center/220px repeat,
 			var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
 			var(--gray-999);
 		background-blend-mode: overlay, normal, normal, normal;
@@ -194,20 +320,29 @@ const projects = (await getCollection('work'))
 		font-size: var(--text-2xl);
 	}
 
+	.section-copy {
+		font-size: var(--text-lg);
+		margin-bottom: 24px;
+	}
+
 	@media (min-width: 50em) {
 		.section {
 			grid-template-columns: repeat(4, 1fr);
-			grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
+			grid-template-areas: "header header header header" "content content content content";
 			gap: 5rem;
 		}
 
 		.section.with-cta {
-			grid-template-areas: 'header header header cta' 'gallery gallery gallery gallery';
+			grid-template-areas: "header header header cta" "content content content content";
 		}
 
 		.section-header {
 			grid-area: header;
 			font-size: var(--text-lg);
+		}
+
+		.section-content {
+			grid-area: content;
 		}
 
 		.section-header h3 {
@@ -219,10 +354,6 @@ const projects = (await getCollection('work'))
 			text-align: left;
 		}
 
-		.gallery {
-			grid-area: gallery;
-		}
-
 		.cta {
 			grid-area: cta;
 		}
@@ -230,23 +361,20 @@ const projects = (await getCollection('work'))
 
 	/* ====================================================== */
 
-	.mention-card {
+	.leistung-card {
 		display: flex;
-		height: 7rem;
+		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		text-align: center;
 		border: 1px solid var(--gray-800);
 		border-radius: 1.5rem;
-		color: var(--gray-300);
+		color: var(--gray-50);
 		background: var(--gradient-subtle);
 		box-shadow: var(--shadow-sm);
-	}
-
-	@media (min-width: 50em) {
-		.mention-card {
-			border-radius: 1.5rem;
-			height: 9.5rem;
-		}
+		padding: 1rem;
+		gap: 1rem;
+		font-size: larger;
+		max-width: calc(100vw - 3rem);
 	}
 </style>

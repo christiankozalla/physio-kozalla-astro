@@ -1,12 +1,14 @@
 ---
 interface Props {
 	href: string;
+	small?: boolean;
+	style?: string;
 }
 
-const { href } = Astro.props;
+const { href, small, style = "" } = Astro.props;
 ---
 
-<a href={href}><slot /></a>
+<a href={href} style={style} class={small ? "small" : ""}><slot /></a>
 
 <style>
 	a {
@@ -30,6 +32,9 @@ const { href } = Astro.props;
 		a {
 			font-size: var(--text-lg);
 		}
+		a.small {
+			font-size: medium;
+		}
 	}
 
 	/* Overlay for hover effects. */
@@ -51,6 +56,9 @@ const { href } = Astro.props;
 		a {
 			padding: 1.125rem 2.5rem;
 			font-size: var(--text-xl);
+		}
+		a.small {
+			font-size:medium;
 		}
 	}
 </style>
