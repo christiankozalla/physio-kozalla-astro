@@ -21,7 +21,6 @@ const { href, small, style = "" } = Astro.props;
 	span.fallback-number {
 		position: relative;
 		display: flex;
-		flex-wrap: wrap;
 		place-content: center;
 		text-align: center;
 		padding: 0.56em 2em;
@@ -35,6 +34,12 @@ const { href, small, style = "" } = Astro.props;
 		box-shadow: var(--shadow-md);
 		white-space: nowrap;
 		max-width: 300px;
+		font-weight: bold;
+		letter-spacing: 0.6px;
+	}
+
+	span.fallback-number {
+		flex-wrap: wrap;
 	}
 
 	@media (min-width: 20em) {
