@@ -11,7 +11,7 @@ const { href, small, style = "" } = Astro.props;
 <a href={href} style={style} class={small ? "small call-button" : "call-button"}
 	><slot /></a
 >
-<span class="fallback-number" style={`${style};display: none`}
+<span class={small ? "small fallback-number" : "fallback-number"} style={`${style};display: none`}
 	><slot />
 	<span>04832 9273</span></span
 >
@@ -33,7 +33,7 @@ const { href, small, style = "" } = Astro.props;
 		background: var(--gradient-accent-orange);
 		box-shadow: var(--shadow-md);
 		white-space: nowrap;
-		max-width: 300px;
+		max-width: 400px;
 		font-weight: bold;
 		letter-spacing: 0.6px;
 	}
@@ -46,10 +46,12 @@ const { href, small, style = "" } = Astro.props;
 		a,
 		span.fallback-number {
 			font-size: var(--text-lg);
+			max-width: 600px;
 		}
 		a.small,
-		span.fallback-number {
+		span.small.fallback-number {
 			font-size: medium;
+			max-width: 600px;
 		}
 	}
 
