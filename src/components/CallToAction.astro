@@ -11,7 +11,7 @@ const { href, small, style = "" } = Astro.props;
 <a href={href} style={style} class={small ? "small call-button" : "call-button"}
 	><slot /></a
 >
-<span class={small ? "small fallback-number" : "fallback-number"} style={`${style};display: none`}
+<span class={small ? "small fallback-number" : "fallback-number"} style={style ? `display:none;${style}` : "display: none"}
 	><slot />
 	<span>04832 9273</span></span
 >
