@@ -5,11 +5,12 @@ type Props = {
         alt: string;
     };
     copy: string;
+    imageObjectPosition: "top" | "center" | "bottom";
 };
-const { img, copy } = Astro.props;
+const { img, copy, imageObjectPosition } = Astro.props;
 ---
 
-<div class="container">
+<div class="container" style={`--image-object-position: ${imageObjectPosition};`}>
     <img class="item" src={img.src} alt={img.alt} />
     <p class="item copy" set:html={copy}/>
     <style>
@@ -27,7 +28,7 @@ const { img, copy } = Astro.props;
             flex-grow: 0;
             flex-shrink: 0;
             object-fit: cover;
-            object-position: bottom;
+            object-position: var(--image-object-position);
         }
 
         .item:first-child {

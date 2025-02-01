@@ -10,6 +10,7 @@ import Icon from "../components/Icon.astro";
 import Pill from "../components/Pill.astro";
 import Contact from "../components/Contact.astro";
 import ImageAndCopy from "../components/ImageAndCopy.astro";
+import Accordion from "../components/Accordion.astro";
 
 const behandlungsmethoden: {
 	img: { src: string; alt: string };
@@ -84,16 +85,99 @@ const bobathhandling: { img: { src: string; alt: string }; copy: string }[] = [
 	{
 		img: {
 			src: "/kgfotos/Bobath-Handling/3-Bobath-rueckenschonendes-Handlung-Aufstehhilfe.JPG",
-			alt: "Schritt 3"
+			alt: "Schritt 3",
 		},
 		copy: "Dritter Schritt:<br>Über die Schulter den Patienten auf die Seite drehen.",
 	},
 	{
 		img: {
-			src: "/kgfotos/Bobath-Handling/3-Bobath-rueckenschonendes-Handlung-Aufstehhilfe.JPG",
+			src: "/kgfotos/Bobath-Handling/4-Bobath-Handling-nach-Bobath-Aufstehhilfen.JPG",
 			alt: "Schritt 4",
 		},
-		copy: "Vierter Schritt:<br>Über die Schulter die Aufsteh-Bewegung einleiten und dabei die Hüfte des Patienten halten.",
+		copy: "Vierter Schritt:<br>Die Aufsteh-Bewegung einleiten und dabei die Hüfte des Patienten halten.",
+	},
+];
+/**
+ * - Hausbehandlung
+- Krankengymnastik KG (alle Bereiche)
+    Für Menschen mit orthopädischen (Skelett-Bilder einfügen) Erkrankungen, neurologischen Errankungen, internistische Erkrankungen
+- Krankengymnastik auf neurophysiologischer Grundlage KG-ZNS (Bobath oder Vojta für Kinder und Erwachsene)
+    Für Menschen mit neurologischen Erkranken, sprich nach Schlaganfall, Parkinson, Multiple Sklerose. Von Physio Team Itzehoe übernehmen
+- Sensorische Integration (SI) oder sensorisch-perzeptive Behandlung (Feldenkrais)
+- Manuelle Lymphdrainage (MLD)
+- Klassische Massage Therapie (KMT) mit Wärmetherapie (Heißluft, Fango)
+- Entspannungstechniken
+- Physiotherapie bei Schmerzen
+- REHA-Sport (alle Bereiche)
+ */
+const leistungen = [
+	{
+		title: "Hausbehandlung",
+		content:
+			"Wir bieten Hausbehandlungen für Patienten an, die nicht in die Praxis kommen können.",
+	},
+	{
+		title: "Krankengymnastik KG",
+		content: `Die allgemeine Krankengymnastik zielt darauf ab, Funktionsstörungen und Schmerzen im Haltungs- und Bewegungsapparat zu lindern, beispielsweise nach einer Operation oder Sportverletzung.
+
+		Die Wahl der therapeutischen Maßnahmen richtet sich nach der Art Ihrer Beschwerden, Ihren individuellen Bedürfnissen sowie Ihrem Fortschritt während der Therapie. Gemeinsam mit Ihnen erstellt der Therapeut einen individuellen Behandlungsplan, um Ihre Gesundheit bestmöglich zu fördern.`,
+		// "Krankengymnastik ist eine physiotherapeutische Behandlungsmethode, die bei orthopädischen, neurologischen und internistischen Erkrankungen angewendet wird.",
+	},
+	{
+		title: "Krankengymnastik auf neurophysiologischer Grundlage KG-ZNS",
+		content: `KG-ZNS wird bei neurologischen Krankheitsbildern wie Morbus Parkinson, Multipler Sklerose (MS), Schlaganfällen, Halbseitenlähmungen, Schädel-Hirn-Traumata und vielen weiteren Erkrankungen angewendet.
+
+Durch den Einsatz verschiedener Konzepte werden physiologische Bewegungen gefördert und pathologische Entwicklungen gehemmt.
+
+ Ich bin nach dem Bobath-Konzept zertifiziert.`,
+		// "Die Krankengymnastik auf neurophysiologischer Grundlage wird bei neurologischen Erkrankungen wie Schlaganfall, Parkinson und Multiple Sklerose angewendet.",
+	},
+	{
+		title: "Sensorische Integration",
+		content:
+			"Die sensorische Integrationstherapie ist eine spezielle Form der Ergotherapie, die bei Kindern mit Entwicklungsstörungen angewendet wird.",
+	},
+	{
+		title: "Manuelle Lymphdrainage MLD",
+		content:
+			"Dabei handelt es sich um eine spezielle Massagetechnik. Durch sanften Druck wird das Lymphsystem angeregt, um die Entstauung geschwollener Körperregionen zu unterstützen.",
+		// "Die manuelle Lymphdrainage ist eine spezielle Form der Massage, die bei Lymphödemen angewendet wird.",
+	},
+	{
+		title: "Klassische Massage Therapie (KMT) mit Wärmetherapie (Heißluft, Fango)",
+		content: `Bei der klassischen Massage Therapie wendet ich spezielle Grifftechniken an, um den Muskeltonus zu reduzieren, sekundäre Schmerzen zu lindern und die Durchblutung zu fördern.
+		
+		Für das Extra an Wellness verwende ich Heißluft oder Fango-Packungen.`,
+	},
+	{
+		title: "Entspannungstechniken",
+		content:
+			"Entspannungstechniken helfen dabei, Stress abzubauen und die körperliche und geistige Entspannung zu fördern.",
+	},
+	{
+		title: "Physiotherapie bei Schmerzen",
+		content:
+			"Die Physiotherapie bei Schmerzen zielt darauf ab, Schmerzen zu lindern und die Beweglichkeit des Patienten zu verbessern.",
+	},
+	{
+		title: "REHA-Sport (alle Bereiche)",
+		content:
+			"REHA-Sport ist ein spezielles Bewegungsangebot für Menschen mit gesundheitlichen Einschränkungen.",
+	},
+	{
+		title: "Bobath",
+		content:
+			"Bobath ist eine Therapieform, die auf neurophysiologischen Grundlagen beruht. Sie wird bei Patienten mit Schädigungen des zentralen Nervensystems angewendet.",
+	},
+	{
+		title: "Vojta",
+		content:
+			"Die Vojta-Therapie ist eine physiotherapeutische Behandlungsmethode, die bei neurologischen Erkrankungen und Entwicklungsstörungen angewendet wird.",
+	},
+	{
+		title: "Behandlung nach Schlaganfall",
+		content:
+			"Die Behandlung nach einem Schlaganfall ist ein wichtiger Bestandteil der Rehabilitation. Sie zielt darauf ab, die Beweglichkeit und Selbstständigkeit des Patienten wiederherzustellen.",
 	},
 ];
 
@@ -151,13 +235,16 @@ const description =
 
 				<div class="section-content">
 					<p class="section-copy">
-						Ein kleiner Auszug aus meinem Leistungsportfolio:
+						Ein Auszug aus meinem Leistungsportfolio:
 					</p>
 
 					<Grid>
 						{
-							behandlungsmethoden.map((methode) => (
+							behandlungsmethoden.map((methode, i) => (
 								<ImageAndCopy
+									imageObjectPosition={
+										i === 0 ? "top" : "bottom"
+									}
 									img={methode.img}
 									copy={methode.copy}
 								/>
@@ -168,7 +255,6 @@ const description =
 
 				<div class="cta">
 					<CallToAction
-						style="max-width: calc(100vw - 3rem)"
 						href="tel:004948329273"
 					>
 						Vereinbaren Sie einen Termin <Icon
@@ -179,14 +265,46 @@ const description =
 				</div>
 			</section>
 
-			<section id="leistungen" class="section with-background with-cta">
+			<section
+				id="behandlungsmethoden"
+				class="section with-background with-cta"
+			>
+				<header class="section-header stack gap-2 lg:gap-4">
+					<h3 style="word-break: break-word">
+						Behand&shy;lungs&shy;methoden
+					</h3>
+				</header>
+
+				<div class="section-content">
+					<p class="section-copy">
+						Unsere Behandlungsmethoden sind spezialisiert auf
+						Bobath, Vojta, sensorische Integration und Behandlung
+						nach Schlaganfall.
+					</p>
+
+					<Accordion items={leistungen} />
+				</div>
+
+				<div class="cta">
+					<CallToAction
+						href="tel:004948329273"
+					>
+						Vereinbaren Sie einen Termin <Icon
+							icon="phone"
+							size="1.2em"
+						/>
+					</CallToAction>
+				</div>
+			</section>
+
+			<section id="handling" class="section with-background with-cta">
 				<header class="section-header stack gap-2 lg:gap-4">
 					<h3>Bobath Handling</h3>
 				</header>
 
 				<div class="section-content">
 					<p class="section-copy">
-						Die rückenschonende Aufsteh-Hilfe für
+						Die rückenschonende Aufsteh-Hilfe, anwendbar durch
 						Angehörige und Pflegepersonal.
 					</p>
 
@@ -196,6 +314,7 @@ const description =
 								<ImageAndCopy
 									img={methode.img}
 									copy={methode.copy}
+									imageObjectPosition="top"
 								/>
 							))
 						}
@@ -204,7 +323,6 @@ const description =
 
 				<div class="cta">
 					<CallToAction
-						style="max-width: calc(100vw - 3rem)"
 						href="tel:004948329273"
 					>
 						Vereinbaren Sie einen Termin <Icon
@@ -230,6 +348,28 @@ const description =
 
 		<!-- <ContactCTA /> -->
 	</div>
+	<script is:inline>
+		document.addEventListener("DOMContentLoaded", () => {
+			function shouldShowFallback() {
+				const isNotMobile =
+					window.matchMedia("(min-width: 768px)").matches; // Adjust based on your needs
+				const isTouchDevice = "ontouchstart" in window;
+				const isAndroid = /Android/i.test(navigator.userAgent);
+				const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+				return isNotMobile && !isTouchDevice && !isAndroid && !isIOS;
+			}
+
+			if (shouldShowFallback()) {
+				document.querySelectorAll(".fallback-number").forEach((el) => {
+					el.style.display = "flex";
+				});
+				document.querySelectorAll(".call-button").forEach((el) => {
+					el.style.display = "none";
+				});
+			}
+		});
+	</script>
 </BaseLayout>
 
 <style>
@@ -273,11 +413,9 @@ const description =
 		}
 	}
 
-	/* ====================================================== */
-
 	.section {
 		display: grid;
-		gap: 2rem;
+		gap: 1rem;
 	}
 
 	.with-background {
@@ -325,11 +463,17 @@ const description =
 		margin-bottom: 24px;
 	}
 
+	.cta {
+		display: flex;
+		justify-content: center;
+		margin-top: 1rem;
+	}
+
 	@media (min-width: 50em) {
 		.section {
 			grid-template-columns: repeat(4, 1fr);
 			grid-template-areas: "header header header header" "content content content content";
-			gap: 5rem;
+			gap: 4rem;
 		}
 
 		.section.with-cta {

@@ -38,8 +38,8 @@ import Icon from "./Icon.astro";
 			>
 
 			<CallToAction small href="tel:048329273">
+				Vereinbaren Sie einen Termin
 				<Icon icon="phone" size="1.2em" />
-				Vereinbaren Sie<br />einen Termin
 			</CallToAction>
 		</p>
 	</div>
@@ -51,7 +51,7 @@ import Icon from "./Icon.astro";
 			gradient
 		/>
 		<h2>So finden Sie uns</h2>
-		<p>
+		<p class="stack-content">
 			Physiotherapie Gerlinde Kozalla<br />Seehundsbank 3<br />25704
 			Meldorf
 		</p>
@@ -78,7 +78,7 @@ import Icon from "./Icon.astro";
 	}
 
 	.contact p {
-		color: var(--gray-400);
+		color: var(--gray-200);
 	}
 
 	.grow-0 {
@@ -91,6 +91,7 @@ import Icon from "./Icon.astro";
 		justify-content: space-between;
 		flex: 1 1 100%;
 		gap: 12px;
+		font-size: large;
 	}
 
 	.justify-start {

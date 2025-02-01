@@ -8,12 +8,20 @@ interface Props {
 const { href, small, style = "" } = Astro.props;
 ---
 
-<a href={href} style={style} class={small ? "small" : ""}><slot /></a>
+<a href={href} style={style} class={small ? "small call-button" : "call-button"}
+	><slot /></a
+>
+<span class="fallback-number" style={`${style};display: none`}
+	><slot />
+	<span>04832 9273</span></span
+>
 
 <style>
-	a {
+	a,
+	span.fallback-number {
 		position: relative;
 		display: flex;
+		flex-wrap: wrap;
 		place-content: center;
 		text-align: center;
 		padding: 0.56em 2em;
@@ -26,20 +34,24 @@ const { href, small, style = "" } = Astro.props;
 		background: var(--gradient-accent-orange);
 		box-shadow: var(--shadow-md);
 		white-space: nowrap;
+		max-width: 300px;
 	}
 
 	@media (min-width: 20em) {
-		a {
+		a,
+		span.fallback-number {
 			font-size: var(--text-lg);
 		}
-		a.small {
+		a.small,
+		span.fallback-number {
 			font-size: medium;
 		}
 	}
 
 	/* Overlay for hover effects. */
-	a::after {
-		content: '';
+	a::after,
+	span.fallback-number::after {
+		content: "";
 		position: absolute;
 		inset: 0;
 		pointer-events: none;
@@ -48,17 +60,21 @@ const { href, small, style = "" } = Astro.props;
 	}
 
 	a:focus::after,
-	a:hover::after {
+	a:hover::after,
+	span.fallback-number:focus::after,
+	span.fallback-number:hover::after {
 		background-color: hsla(var(--gray-999-basis), 0.3);
 	}
 
 	@media (min-width: 50em) {
-		a {
+		a,
+		span.fallback-number {
 			padding: 1.125rem 2.5rem;
 			font-size: var(--text-xl);
 		}
-		a.small {
-			font-size:medium;
+		a.small,
+		span.fallback-number {
+			font-size: medium;
 		}
 	}
 </style>
