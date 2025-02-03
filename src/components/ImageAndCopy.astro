@@ -44,5 +44,24 @@ const { img, copy, imageObjectPosition } = Astro.props;
             padding: 2rem;
             width: 100%;
         }
+
+        @media (max-width: 360px) {
+            .container {
+                flex-direction: column;
+            }
+
+            img.item {
+                width: 100%;
+                height: 50%;
+            }
+
+            .item:first-child {
+                border-radius: 24px 24px 0 0;
+            }
+
+            .item:last-child {
+                border-radius: 0 0 24px 24px;
+            }
+        }
     </style>
 </div>
