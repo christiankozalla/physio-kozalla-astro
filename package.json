@@ -6,8 +6,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "deploy": "rsync -avz --delete -e \"ssh\" ./dist/ christian@83.171.248.78:~/physio/"
+    "astro": "astro"
   },
   "dependencies": {
     "astro": "^5.1.1"
