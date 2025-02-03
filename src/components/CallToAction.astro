@@ -36,6 +36,7 @@ const { href, small, style = "" } = Astro.props;
 		max-width: 400px;
 		font-weight: bold;
 		letter-spacing: 0.6px;
+		align-items: center;
 	}
 
 	span.fallback-number {
@@ -71,6 +72,14 @@ const { href, small, style = "" } = Astro.props;
 	span.fallback-number:focus::after,
 	span.fallback-number:hover::after {
 		background-color: hsla(var(--gray-999-basis), 0.3);
+	}
+
+	@media (max-width: 360px) {
+		a.call-button,
+		span.fallback-number {
+			font-size: 16px;
+			letter-spacing: initial;
+		}
 	}
 
 	@media (min-width: 50em) {
