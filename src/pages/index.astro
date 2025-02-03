@@ -351,13 +351,10 @@ const description =
 	<script is:inline>
 		document.addEventListener("DOMContentLoaded", () => {
 			function shouldShowFallback() {
-				const isNotMobile =
-					window.matchMedia("(min-width: 768px)").matches; // Adjust based on your needs
-				const isTouchDevice = "ontouchstart" in window;
 				const isAndroid = /Android/i.test(navigator.userAgent);
 				const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-				return isNotMobile && !isTouchDevice && !isAndroid && !isIOS;
+				return !isAndroid && !isIOS;
 			}
 
 			if (shouldShowFallback()) {
@@ -413,11 +410,6 @@ const description =
 		}
 	}
 
-	.section {
-		display: grid;
-		gap: 1rem;
-	}
-
 	.with-background {
 		position: relative;
 	}
@@ -452,6 +444,7 @@ const description =
 		max-width: 50ch;
 		font-size: var(--text-md);
 		color: var(--gray-300);
+		text-align: left;
 	}
 
 	.section-header h3 {
@@ -467,6 +460,17 @@ const description =
 		display: flex;
 		justify-content: center;
 		margin-top: 1rem;
+	}
+
+	#kontakt {
+		margin-bottom: 24px;
+	}
+
+	@media (min-width: 361px) {
+		.section {
+			display: grid;
+			gap: 1rem;
+		}
 	}
 
 	@media (min-width: 50em) {
