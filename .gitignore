@@ -1,5 +1,6 @@
 # build output
-dist/
+# dist is not ignored because
+# i want to see changes to facilitate incremental upload to ionos
 # generated types
 .astro/
 
