@@ -19,7 +19,7 @@ const groupIntoSets = <T extends unknown[]>(array: T, groupSize: number) => {
     }, []);
 };
 
-const groupedItems = groupIntoSets(items, 6);
+const groupedItems = groupIntoSets(items, items.length / 2);
 ---
 
 <div class="accordion">

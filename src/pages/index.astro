@@ -121,7 +121,6 @@ const leistungen = [
 		content: `Die allgemeine Krankengymnastik zielt darauf ab, Funktionsstörungen und Schmerzen im Haltungs- und Bewegungsapparat zu lindern, beispielsweise nach einer Operation oder Sportverletzung.
 
 		Die Wahl der therapeutischen Maßnahmen richtet sich nach der Art Ihrer Beschwerden, Ihren individuellen Bedürfnissen sowie Ihrem Fortschritt während der Therapie. Gemeinsam mit Ihnen erstellt der Therapeut einen individuellen Behandlungsplan, um Ihre Gesundheit bestmöglich zu fördern.`,
-		// "Krankengymnastik ist eine physiotherapeutische Behandlungsmethode, die bei orthopädischen, neurologischen und internistischen Erkrankungen angewendet wird.",
 	},
 	{
 		title: "Krankengymnastik auf neurophysiologischer Grundlage KG-ZNS",
@@ -130,7 +129,10 @@ const leistungen = [
 Durch den Einsatz verschiedener Konzepte werden physiologische Bewegungen gefördert und pathologische Entwicklungen gehemmt.
 
  Ich bin nach dem Bobath-Konzept zertifiziert.`,
-		// "Die Krankengymnastik auf neurophysiologischer Grundlage wird bei neurologischen Erkrankungen wie Schlaganfall, Parkinson und Multiple Sklerose angewendet.",
+	},
+	{
+		title: "Manuelle Therapie MT",
+		content: "Mit der manuellen Therapie lösen wir Blockierungen in der Wirbelsäule."
 	},
 	{
 		title: "Sensorische Integration",
@@ -138,10 +140,14 @@ Durch den Einsatz verschiedener Konzepte werden physiologische Bewegungen geför
 			"Die sensorische Integrationstherapie ist eine spezielle Form der Ergotherapie, die bei Kindern mit Entwicklungsstörungen angewendet wird.",
 	},
 	{
+		title: "Behandlungen nach Feldenkrais",
+		content: "Die Feldenkrais-Methode ermöglicht es, unbewusst schädigende Bewegungsmuster zu erkennen und durch gesündere, wohltuende Bewegungsmuster zu ersetzen."
+
+	},
+	{
 		title: "Manuelle Lymphdrainage MLD",
 		content:
 			"Dabei handelt es sich um eine spezielle Massagetechnik. Durch sanften Druck wird das Lymphsystem angeregt, um die Entstauung geschwollener Körperregionen zu unterstützen.",
-		// "Die manuelle Lymphdrainage ist eine spezielle Form der Massage, die bei Lymphödemen angewendet wird.",
 	},
 	{
 		title: "Klassische Massage Therapie (KMT) mit Wärmetherapie (Heißluft, Fango)",
@@ -183,12 +189,12 @@ Durch den Einsatz verschiedener Konzepte werden physiologische Bewegungen geför
 
 const title = "Physiotherapie Praxis Gerlinde Kozalla";
 const description =
-	"Wir sind spezialisiert auf Bobath, Vojta, sensorische Integration und Behandlung nach Schlaganfall.";
+	"Therapieangebote für Menschen jeden Alters mit orthopädischen, neurologischen oder internistischen Erkrankungen.";
 ---
 
 <BaseLayout
 	title="Physiotherapie Praxis Gerlinde Kozalla"
-	description={"Terminvereinbarung unter 04832 9273 " + description}
+	description={"Terminvereinbarung unter 04832 9273 oder 0176 625 90 965 - " + description}
 >
 	<div class="stack gap-20 lg:gap-48">
 		<div id="intro" class="wrapper stack gap-8 lg:gap-20">
@@ -199,7 +205,7 @@ const description =
 							><Icon
 								icon="lightning"
 								size="1.33em"
-							/>Schmerztherapie</Pill
+							/>Physiotherapie</Pill
 						>
 						<Pill
 							><Icon
@@ -235,7 +241,8 @@ const description =
 
 				<div class="section-content">
 					<p class="section-copy">
-						Ein Auszug aus meinem Leistungsportfolio:
+						Ich habe 5 Jahre lang die Selbsthilfegruppe Parkinson begleitet und die Selbsthilfegruppe Schmerz gegründet.<br>
+						Hier ein Auszug aus meinem Leistungsportfolio:
 					</p>
 
 					<Grid>
@@ -299,13 +306,13 @@ const description =
 
 			<section id="handling" class="section with-background with-cta">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Bobath Handling</h3>
+					<h3>Handlings nach Bobath</h3>
 				</header>
 
 				<div class="section-content">
 					<p class="section-copy">
 						Die rückenschonende Aufsteh-Hilfe, anwendbar durch
-						Angehörige und Pflegepersonal.
+						Angehörige und Pflegepersonal.<br>Ich unterrichte seit 37 Jahren, wie Angehörige und Pflegepersonal mit Hilfe der Handlings nach Bobath den Erkrankten helfen können.
 					</p>
 
 					<Grid>
@@ -345,8 +352,6 @@ const description =
 				</div>
 			</section>
 		</main>
-
-		<!-- <ContactCTA /> -->
 	</div>
 	<script is:inline>
 		document.addEventListener("DOMContentLoaded", () => {
@@ -454,6 +459,7 @@ const description =
 	.section-copy {
 		font-size: var(--text-lg);
 		margin-bottom: 24px;
+		max-width: 60ch;
 	}
 
 	.cta {
