@@ -4,9 +4,10 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && npm run rename-aktivrehasport",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "rename-aktivrehasport": "mv ./dist/aktivrehasport/index.html ./dist/aktivrehasport.html && rm -rf ./dist/aktivrehasport"
   },
   "dependencies": {
     "astro": "^5.1.1"
