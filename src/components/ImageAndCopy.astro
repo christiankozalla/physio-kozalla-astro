@@ -11,7 +11,7 @@ const { img, copy, imageObjectPosition } = Astro.props;
 ---
 
 <div class="container" style={`--image-object-position: ${imageObjectPosition};`}>
-    <img class="item" src={img.src} alt={img.alt} />
+    <img class="item" src={img.src} alt={img.alt} loading="lazy" />
     <p class="item copy" set:html={copy}/>
     <style>
         .container {
